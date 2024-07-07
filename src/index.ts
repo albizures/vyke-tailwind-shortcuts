@@ -1,5 +1,5 @@
-import plugin from 'tailwindcss/plugin'
-import type { Config } from 'tailwindcss/types/config'
+import plugin from 'tailwindcss/plugin.js'
+import type { Config, PluginCreator } from 'tailwindcss/types/config'
 
 type Theme = (
 	path: string,
@@ -32,7 +32,10 @@ type Shortcut = {
  * ])
  * ```
  */
-export function shortcuts(...config: Array<ShortcutConfigItem>) {
+export function shortcuts(...config: Array<ShortcutConfigItem>): {
+	handler: PluginCreator
+	config?: Partial<Config>
+} {
 	const shortcuts: Array<Shortcut> = []
 
 	for (const item of config) {
@@ -79,7 +82,7 @@ export function shortcuts(...config: Array<ShortcutConfigItem>) {
 	})
 }
 
-function entractShortcuts(config: ShortcutConfigItem) {
+function entractShortcuts(config: ShortcutConfigItem): Array<Shortcut> {
 	const shortcuts: Array<Shortcut> = []
 
 	if (Array.isArray(config)) {
@@ -102,7 +105,7 @@ function entractShortcuts(config: ShortcutConfigItem) {
 	return shortcuts
 }
 
-function fromRecordToShortcuts(record: ShortcutRecord) {
+function fromRecordToShortcuts(record: ShortcutRecord): Array<Shortcut> {
 	return Object.entries(record)
 		.map(([name, classList]) => {
 			return {
