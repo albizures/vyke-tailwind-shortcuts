@@ -1,0 +1,11 @@
+{
+	"name": "@vyke/results",
+	"version": "0.4.3",
+	"exports": {
+		".": "./src/index.ts",
+		"./result": "./src/result.ts",
+		"./option": "./src/option.ts",
+		"./r": "./src/r.ts",
+		"./o": "./src/o.ts"
+	}
+}
