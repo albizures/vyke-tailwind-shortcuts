@@ -1,11 +1,7 @@
 {
-	"name": "@vyke/results",
-	"version": "0.4.3",
+	"name": "@vyke/tailwind-shortcuts",
+	"version": "0.1.0",
 	"exports": {
-		".": "./src/index.ts",
-		"./result": "./src/result.ts",
-		"./option": "./src/option.ts",
-		"./r": "./src/r.ts",
-		"./o": "./src/o.ts"
+		".": "./src/index.ts"
 	}
 }
